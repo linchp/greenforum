@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="">
+    <meta name="generator" content="Grapedrop">
+    <!-- Apple Stuff -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <!--<meta property="og:url" content="http://ed5eb26.grapedrop.com">-->
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script type="text/javascript" src="js/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/base-v1.js" charset="utf-8"></script>
+    <!-- <script type="text/javascript" src="js/jquery-1.2.6.min.js" charset="utf-8"></script>-->
+    <script type="text/javascript" src="js/cookie.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/common.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js" charset="utf-8"></script>
+    <!-- <script type="text/javascript" src="js/base-2011.js" charset="utf-8"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lory.js/2.2.0/lory.min.js"></script>
+    <link rel="stylesheet" href="styles/comment-base.css">
+    <link rel="stylesheet" href="styles/comment-index-style.css"></head>
+<!--    <script type="text/javascript">window.onload = checkuserStatus()</script>-->
+  <!--  提交评论  -->
+    <script type="text/javascript" src="js/createComment_ajax.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/checkUserStatusMan.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/postandcommentsloader222.js" charset="utf-8"></script>
+
+  <body>
+    <style>body { margin: 0; padding: 0; overflow-x: hidden; }</style>
+    <section id="ixiq">
+      <header class="header3">
+        <div id="id36" class="container">
+          <div data-columns="1" data-gjs="navbar" id="ixi8" class="row">
+            <div data-column="1" id="is5cv" class="cell">
+              <div id="ip1a2" class="burger">
+                <div class="burger-line"></div>
+                <div id="itvkh" class="burger-line"></div>
+                <div class="burger-line"></div>
+              </div>
+            </div>
+            <div data-column="1" id="ix3pq" class="cell">
+              <div data-gjs="navbar-items" class="menu-container">
+                <nav data-gjs="navs" class="menu">
+                  <a href="./center.html" id="loginbar" class="menu-link">用户名</a>
+                  <a href="./index.html?logoutSuccess" class="menu-link" onclick="logout()">登出</a></nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </section>
+    <section id="ipd5" class="gpd-section">
+      <div class="gpd-container" id="ifkjk">
+        <div class="gdp-row">
+          <div class="cell" id="iiy7g">
+            <h1 id="postTitle">Insert your header text here</h1>
+            <div id="iegpj"></div>
+            <div id="postContent" class="gpd-text">Insert your text here</div></div>
+          <div class="cell" id="i81x1"></div>
+        </div>
+      </div>
+      <div id="iyj5" class="gpd-container">
+<!--        <div id="commentContent" class="gdp-row">-->
+<!--          <div id="iczi" class="cell"></div>-->
+<!--          <div id="iggvi" class="cell">-->
+<!--            <h1 id="iiwwg">Insert your header text here</h1>-->
+<!--            <div id="iiqj1"></div>-->
+<!--            <div class="gpd-text" id="if2wl">Insert your text here</div></div>-->
+<!--        </div>-->
+      </div>
+    </section>
+    <section class="section-form4">
+      <div id="i5qei" class="container">
+        <div id="i3dh5f">
+          <h1 id="i2yrwj">COMMENT</h1>
+          <form method="post" name="section-form" id="ilks5u">
+            <div id="ir31sg" class="form-group">
+              <textarea placeholder="Message" required name="comment" class="textarea"></textarea>
+            </div>
+            <div id="ibkngv" class="form-group">
+              <button type="submit" id="ilimvf" class="button2" onclick="createcomment()">SUBMIT</button></div>
+            <div data-form-state="success" id="ii34b" class="state-success">Thanks! We received your request</div>
+            <div data-form-state="error" id="ipjji" class="state-error">An error occurred on processing your request, try again!</div></form>
+        </div>
+      </div>
+    </section>
+    <script>var items = document.querySelectorAll('#ip1a2');
+      for (var i = 0,
+      len = items.length; i < len; i++) { (function() {
+          var e, n = 0,
+          a = function() {
+            var e, n = document.createElement("void"),
+            a = {
+              transition: "transitionend",
+              OTransition: "oTransitionEnd",
+              MozTransition: "transitionend",
+              WebkitTransition: "webkitTransitionEnd"
+            };
+            for (e in a) if (void 0 !== n.style[e]) return a[e]
+          } (),
+          t = function(e) {
+            var n = window.getComputedStyle(e),
+            a = n.display,
+            t = (n.position, n.visibility, n.height, parseInt(n["max-height"]));
+            if ("none" !== a && "0" !== t) return e.offsetHeight;
+            e.style.height = "auto",
+            e.style.display = "block",
+            e.style.position = "absolute",
+            e.style.visibility = "hidden";
+            var r = e.offsetHeight;
+            return e.style.height = "",
+            e.style.display = "",
+            e.style.position = "",
+            e.style.visibility = "",
+            r
+          },
+          r = function(e) {
+            n = 1;
+            var a = t(e),
+            r = e.style;
+            r.display = "block",
+            r.transition = "max-height 0.25s ease-in-out",
+            r.overflowY = "hidden",
+            "" == r["max-height"] && (r["max-height"] = 0),
+            0 == parseInt(r["max-height"]) ? (r["max-height"] = "0", setTimeout(function() {
+              r["max-height"] = a + "px"
+            },
+            10)) : r["max-height"] = "0"
+          },
+          i = function(t) {
+            if (t.preventDefault(), !n) {
+              var i = this.closest("[data-gjs=navbar]"),
+              l = i.querySelector("[data-gjs=navbar-items]");
+              r(l),
+              e || (l.addEventListener(a,
+              function() {
+                n = 0;
+                var e = l.style;
+                0 == parseInt(e["max-height"]) && (e.display = "", e["max-height"] = "")
+              }), e = 1)
+            }
+          };
+          "gjs-collapse" in this || this.addEventListener("click", i),
+          this["gjs-collapse"] = 1
+        }.bind(items[i]))();
+      }</script>
+    <script>var formStateName = 'data-form-state';
+      var formStateEls = $('[' + formStateName + ']');
+      formStateEls.hide();
+      $('form').submit(function(e) {
+        e.preventDefault();
+        var form = $(this);
+        var action = (this.getAttribute('action') || '').trim();
+        var formData = new FormData(this);
+        var chkSelected = {};
+        var name = this.getAttribute('name');
+        name && formData.append('__name', name);
+
+        // Init checkbox and radio if still empty
+        form.find('[type=radio], [type=checkbox]').each(function(item) {
+          var chkName = this.name;
+          if (this.checked) {
+            chkSelected[chkName] = 1;
+            return;
+          }
+          chkSelected[chkName] = 0;
+        });
+
+        for (var chk in chkSelected) {
+          if (!chkSelected[chk]) {
+            formData.append(chk, '');
+          }
+        }
+      });</script>
+  </body>
+
+</html>

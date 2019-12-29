@@ -1,0 +1,14 @@
+server:
+    port: 8889
+eureka:
+    client:
+        fetch-registry: false
+        preferIpAddress: true
+        registerWithEureka: false
+        serviceUrl:
+            defaultZone: http://localhost:8889/eureka
+    server:
+        enable-self-preservation: false
+spring:
+    application:
+        name: eureka-server

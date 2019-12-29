@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.greenforum.postandcomment.mapper.PostAndCommentMapper">
+	<insert id="insertPost" parameterType="Post">
+		insert into post(
+		post_title,
+		post_content,
+		user_id,
+		post_id,
+		post_create_time,
+		post_password,
+		post_status
+		) values(
+		#{postTitle},
+		#{postContent},
+		#{userId},
+		UUID(),
+		NOW(),
+		#{postPassword},
+		1);
+	</insert>
+	<insert id="insertComment" parameterType="Comment">
+		insert into t_comments(
+		comment_id,
+		comment_content,
+		user_id,
+		post_id,
+		comment_create_time
+		) values(
+		UUID(),
+		#{commentContent},
+		#{userId},
+		#{postId},
+		NOW());
+	</insert>
+	<insert id="insertFlow" parameterType="Flow">
+		insert into t_flow(
+		flow_id,
+		user_id,
+		post_id,
+		flow_status
+		) values(
+		UUID(),
+		#{userId},
+		#{postId},
+		1);
+	</insert>
+	<!-- 查询总数 -->
+	<select id="queryPostsTotalCount" resultType="int">
+		select count(post_id) from post;
+	</select>
+	<select id="queryCommentsTotalCount" resultType="int">
+		select count(post_id) from t_comments;
+	</select>
+	<!-- 查询分页数据 -->
+	<select id="queryPosts" resultType="Post">
+		select * from post limit #{start},#{rows}
+	</select>
+	<!-- 查询帖子及对应的评论数据 -->
+	<select id="queryPostAndComments" resultType="String">
+		select * from post limit #{start},#{rows}
+	</select>
+	<!-- 查询帖子数据 -->
+	<select id="queryPostByPostId" resultType="Post">
+		select * from post where post_id=#{postId}
+	</select>
+	<select id="queryPostsByUserId" resultType="Post">
+		select * from post where user_id=#{userId}
+	</select>
+	<select id="queryPostsFlowByUserId" resultType="Post">
+		SELECT post.* FROM post INNER JOIN (SELECT post_id FROM t_flow WHERE user_id=#{userId})fp ON fp.post_id = post.post_id
+	</select>
+	<select id="queryPostsCommentByUserId" resultType="Post">
+		SELECT * FROM post WHERE post_id IN (SELECT DISTINCT(post_id) FROM t_comments WHERE user_id=#{userId}) 
+	</select>
+	<!-- 查询分页数据 -->
+	<select id="queryCommentsByPostId" resultType="Comment">
+		select * from t_comments where post_id=#{postId}
+	</select>
+	<!-- 查询分页数据 -->
+</mapper> 
